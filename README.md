@@ -1,0 +1,1 @@
+# obsidian-sync-ipfs-plugin

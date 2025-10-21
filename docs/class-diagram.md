@@ -5,12 +5,12 @@ This document describes the class structure of the plugin.
 ```plantuml
 @startuml
 
-interface MyPluginSettings {
+interface HeliaPluginSettings {
   mySetting: string
 }
 
-class MyPlugin {
-  +settings: MyPluginSettings
+class HeliaPlugin {
+  +settings: HeliaPluginSettings
   +onload(): Promise<void>
   +onunload(): void
   +loadSettings(): Promise<void>
@@ -24,23 +24,23 @@ class SampleModal {
 }
 
 class SampleSettingTab {
-  +plugin: MyPlugin
-  +constructor(app: App, plugin: MyPlugin)
+  +plugin: HeliaPlugin
+  +constructor(app: App, plugin: HeliaPlugin)
   +display(): void
 }
 
-MyPlugin o-- MyPluginSettings
-SampleSettingTab o-- MyPlugin
+HeliaPlugin o-- HeliaPluginSettings
+SampleSettingTab o-- HeliaPlugin
 
 @enduml
 ```
 
 ## Class Descriptions
 
-### `MyPluginSettings`
+### `HeliaPluginSettings`
 An interface that defines the structure for the plugin's settings. It ensures type safety for the settings object.
 
-### `MyPlugin`
+### `HeliaPlugin`
 The main class of the plugin, extending `Plugin` from the Obsidian API. It handles the plugin's lifecycle, including loading and saving settings, adding ribbon icons, status bar items, and commands.
 
 ### `SampleModal`
